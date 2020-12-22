@@ -4,11 +4,11 @@ import sklearn
 import pandas as pd
 import joblib
 model = joblib.load(open('ensemble.pkl', 'rb'))
-app=Flask(__name__)
-@app.route("/home",methods=["GET","POST"])
+application=Flask(__name__)
+@application.route("/home",methods=["GET","POST"])
 def home():
     return render_template('dia.html')
-@app.route("/pr",methods=["GET","POST"])
+@application.route("/pr",methods=["GET","POST"])
 def sad():
     if request.method == 'GET':
         return render_template('dia.html')
@@ -33,5 +33,5 @@ def sad():
         else:
             return render_template('dia.html')
 if __name__ == "__main__":
-    app.run(debug=True)
+    application.run(debug=True)
 #infile.close()
